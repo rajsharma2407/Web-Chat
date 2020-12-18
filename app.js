@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
-const PORT = process.env.port || 8080;
+const PORT = process.env.PORT || 8080;
 const {v4:uuidv4} = require('uuid');
 
 app.set('view engine','ejs');
