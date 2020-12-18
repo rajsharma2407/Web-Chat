@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Chat app</title>
+    <script src="https://kit.fontawesome.com/745bd8c243.js" crossorigin="anonymous"></script>
+    <script>const myId = "<%= id %>"</script>
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        body{
+            background:#fff;
+        }
+        .container{
+            margin:20px auto;
+            padding-top: 15px;
+            width:60%;
+            background:rgba(230,230,230,0.1);
+            position: relative;
+            height:92vh;
+            font-family: sans-serif;
+            box-shadow: 0 0 10px gray;
+            border-radius: 20px 20px 0 0;
+        }
+        #text{
+            width:95%;
+            height:40px;
+            border:none;
+            float:left;
+            border:1px solid lightblue;
+        }
+        .box{
+            width:100%;
+            position: absolute;
+            bottom: -40px;
+            box-shadow: 0 5px 15px gray;
+        }
+        .btn{
+            width:5%;
+            height:40px;
+            border:none;
+            float:right;
+            background:rgb(85, 66, 192);
+            color:white;
+        }
+        .msg-box{
+            width:100%;
+            height:100%;
+            overflow:hidden auto;
+            position:relative;
+        }
+        .nav{
+            position:absolute;
+            left:25px;
+            top:100px;
+            display: flex;
+            height:200px;
+            font-size: 30px;
+            display:flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            width:100px;
+        }
+        .nav i{
+            cursor:pointer;
+        }
+        .nav i:hover{
+            color:gray;
+            transition:0.2s ease all;
+        }
+    </style>
+</head>
+<body>
+        <div class="container">
+            <div class="msg-box"></div>
+            <div class="box">
+                <input name="text" id="text">
+                <input type="button" value="Send" class="btn">
+            </div>
+        </div>
+         <div class="nav">
+           <a href="/video/<%= id %>"><i class="fas fa-video"></i></a>
+           <a href="/audio/<%= id %>"><i class="fas fa-microphone"></i></a>
+           <a href="/chat/<%= id %>"><i class="far fa-envelope"></i></a>
+            </div>
+    <script src="script.js"></script>
+</body>
+</html>

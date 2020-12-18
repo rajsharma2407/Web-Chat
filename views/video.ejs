@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Video Call</title>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://kit.fontawesome.com/745bd8c243.js" crossorigin="anonymous"></script>
+	<script>const myId="<%= id %>"</script>
+    <style type="text/css">
+    *{
+    	margin:0;
+		padding:0;
+		box-sizing:border-box
+    }
+    body{
+    	height: 100vh;
+		width: 100%;
+		position:relative;
+    	overflow:hidden;
+    }
+    	.main-video-grid{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+    		height: 100%;
+    		width:100%;
+		}
+		.main-video-grid video {
+			height: 100%;
+			width:100%;
+		}
+    	.user-video-grid{
+    		position: absolute;
+    		right:0;
+    		bottom:0;
+    		width: 300px;
+    	}	
+    	.user-video-grid video{
+			width: 100%;
+			position: absolute;
+			bottom:0;
+		}
+		.close{
+			padding:15px;
+			border-radius: 50%;
+			font-size: 25px;
+			border:1px solid white;
+			background:red;
+			color:white;
+			position:absolute;
+			left:10%;
+			transform: translateX(-50%);
+			top:10%;
+		} 	
+    </style>
+</head>
+<body>
+		<div class="main-video-grid">
+			</div>    
+			<button class="close"><i class="fas fa-phone-slash"></i></button>
+		
+		<div class="user-video-grid">
+			
+		</div>
+	<script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+	<script src="/video.js"></script>
+</body>
+</html>
