@@ -7,6 +7,7 @@ const {v4:uuidv4} = require('uuid');
 
 app.set('view engine','ejs');
 app.use(express.static('public'));
+app.use(express.urlencoded({extended:false}));
 
 io.on('connection',socket=>{
 
@@ -34,6 +35,19 @@ app.get('/',(req,res)=>{
 app.get('/chat/:room',(req,res)=>{
     res.render('index',{id:req.params.room})
 })
+
+app.get('/video',(req,res)=>{
+    res.render('video-template',{newLink:uuidv4()});
+})
+app.post('/video',(req,res)=>{
+    var link = req.body.link;
+    if(link.length >= 30){
+        res.redirect('/video/'+link);
+    }else{
+        res.redirect('/video')
+    }
+})
+
 app.get('/video/:room',(req,res)=>{
     res.render('video',{id:req.params.room});
 })

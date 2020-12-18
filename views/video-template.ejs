@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Chat</title>
+    <style>
+        body{
+            height:100vh;
+            width:100%;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            background: linear-gradient(to right, #f1f3f5,#f2f4f9);
+        }
+        .container{
+            width:300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        a{
+            text-decoration:none;
+            color:#2342ab;
+            font-family: sans-serif;
+            font-size: 20px;
+        }
+        input{
+            padding:7px 10px;
+            font-size: 16px;
+        }
+        #sub{
+            font-family: sans-serif;
+            background-color: white;
+            border:0.1px solid gray;
+        }
+    </style>
+</head>
+<body>
+        <div class="container">
+            <form action="/video" method="post">
+                <input type="text" name="link" id="link" placeholder="Paste the link">
+                <input type="submit" id="sub" value="Submit">
+            </form>
+                <h3>OR</h3>
+            <a href="video/<%= newLink %>">Create a new room</a>
+        </div>
+</body>
+</html>
