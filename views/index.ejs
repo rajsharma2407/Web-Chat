@@ -7,6 +7,9 @@
     <script src="https://kit.fontawesome.com/745bd8c243.js" crossorigin="anonymous"></script>
     <script>const myId = "<%= id %>"</script>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <style>
         *{
             margin:0;
@@ -57,7 +60,7 @@
         .nav{
             position:absolute;
             left:25px;
-            top:100px;
+            top:30px;
             display: flex;
             height:200px;
             font-size: 30px;
@@ -74,6 +77,56 @@
             color:gray;
             transition:0.2s ease all;
         }
+        .add{
+            border-radius: 50%;
+            font-size: 50px;
+            background:#4320aa;
+            color:white;
+            position:absolute;
+            right:20px;
+            top:20px;
+            text-align: center;
+            padding:0 7px;
+            display: none;
+        }
+		@media (max-width: 800px){
+            .container{
+                width:100%;
+                margin:0;
+                border-radius: 0;
+            }
+            .btn{
+                width:10%;
+            }
+            #text{
+                width:90%;
+            }
+            .nav{
+                display: none;
+                height:30px;
+                flex-direction: row;
+                width:50%;
+                transform:translateX(-100%);
+
+            }
+            .nav i{
+                background:white;
+                padding:5px;
+                border-radius: 30px;
+
+            }
+            .add{
+                display: block;
+            }
+        }
+        .visible{
+            transition: 10s cubic-bezier(0.6, 0.04, 0.98, 1.335) all;
+            display: flex;  
+            transform:translateX(10%)
+        }
+        nav{
+            transition: 10s cubic-bezier(0.6, 0.04, 0.98, 1.335) all;
+        }
     </style>
 </head>
 <body>
@@ -84,11 +137,12 @@
                 <input type="button" value="Send" class="btn">
             </div>
         </div>
-         <div class="nav">
+        <span class="add" id="add">+</span>
+         <nav class="nav">
            <a href="/video/<%= id %>"><i class="fas fa-video"></i></a>
            <a href="/audio/<%= id %>"><i class="fas fa-microphone"></i></a>
            <a href="/chat/<%= id %>"><i class="far fa-envelope"></i></a>
-            </div>
-    <script src="script.js"></script>
+            </nav>
+    <script src="/script.js"></script>
 </body>
 </html>

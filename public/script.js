@@ -90,3 +90,10 @@ const addMessage = (date, time, msg, userId)=>{
     msgBox.appendChild(mainDiv);
     msgBox.scrollTop = msgBox.scrollHeight;
 }
+const addNav = document.querySelector('.add');
+const Nav = document.querySelector('.nav');
+
+addNav.onclick = function(){    
+    Nav.classList.toggle('visible');
+
+}

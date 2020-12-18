@@ -77,3 +77,4 @@ const close = document.querySelector('.close');
 close.onclick = function(){
 	socket.emit('dis-connect');
 }
+$('#add').draggable();
