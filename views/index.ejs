@@ -112,8 +112,6 @@
             align-items: center;
             width:100px;
             background:white;
-            transition: 0.4s cubic-bezier(0.2, 0.58, 0.135, 4.045) all;
-
         }
         .nav i{
             cursor:pointer;
@@ -142,7 +140,8 @@
                 border-radius: 0;
             }
             .nav{
-                transform:translateX(100%)
+                display:none;
+                transform:translateX(100%);
             }
             .msg-box{
                 height:calc(100% - 80px)
@@ -164,9 +163,10 @@
         }
        .nav.change{
            transform: translateX(0%);
+           transition: 0.4s cubic-bezier(0.2, 0.58, 0.135, 4.045) all;
        }
        .nav a{
-        transition: 0.4s cubic-bezier(0.2, 0.58, 0.135, 4.045) all;
+           transition: 0.4s cubic-bezier(0.2, 0.58, 0.135, 4.045) all;
        }
     </style>
 </head>
