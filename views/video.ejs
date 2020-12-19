@@ -14,7 +14,7 @@
 		box-sizing:border-box
     }
     body{
-    	height: 100vh;
+    	height: calc(100vh - 50px);
 		width: 100%;
 		position:relative;
     	overflow:hidden;
@@ -53,75 +53,12 @@
 			transform: translateX(-50%);
 			top:10%;
 		} 	
-		.nav{
-            position:absolute;
-            left:25px;
-            top:30px;
-            display: flex;
-            height:200px;
-            font-size: 30px;
-            display:flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-            width:100px;
-        }
-        .nav i{
-            cursor:pointer;
-        }
-        .nav i:hover{
-            color:gray;
-            transition:0.2s ease all;
-        }
-        .add{
-            border-radius: 50%;
-            font-size: 50px;
-            background:#4320aa;
-            color:white;
-            position:absolute;
-            right:10%;
-            top:10%;
-            text-align: center;
-            padding:5px 12px;
-            display: none;
-            border:none;
-        }
-		@media (max-width: 800px){
-           
-            .nav{
-				display: none;
-				background:#000;	
-                height:30px;
-                flex-direction: row;
-                width:30%;
-                transform:translateX(-100%);
-
-            }
-            .nav i{
-                background:#000;
-                padding:5px;
-                border-radius: 30px;
-            }
-            .add{
-                display: block;
-                cursor:pointer;
-                box-shadow: 0 0 5px #2342da;
-                outline:none;
-            }
-            .add:hover{
-                box-shadow: 0 0 10px #5220f2;
-            }
-        }
+		
 		@media (max-width: 500px){
 			.user-video-grid{
 				width:100px;
 			}
 		}
-		.visible{
-            transition: 10s cubic-bezier(0.6, 0.04, 0.98, 1.335) all;
-            display: flex;  
-            transform:translateX(50%)
-        }
     </style>
 </head>
 <body>
@@ -129,12 +66,7 @@
 	<button onclick="myfunction()" style="margin:10px;">
 		<i class="fas fa-paste"></i>
 		</button>
-		<button class="add" id="add">+</button>
-         <nav class="nav">
-           <a href="/video/"><i class="fas fa-video"></i></a>
-           <a href="/voice/"><i class="fas fa-microphone"></i></a>
-           <a href="/chat/<%= id %>"><i class="far fa-envelope"></i></a>
-            </nav>
+	
 	<input type="text" value="<%= id %>" id="input" style="border:none;color:white;pointer-events: none;opacity:0;">
 		<div class="main-video-grid">
 			</div>    

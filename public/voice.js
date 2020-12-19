@@ -1,7 +1,7 @@
 const socket = io('/')
 const mainVideoGrid = document.querySelector('.main-video-grid');
 const userVideoGrid = document.querySelector('.user-video-grid');
-const myVideo = document.createElement('video');
+const myVideo = document.createElement('audio');
 myVideo.className="myVideo";
 myVideo.classList.className="myVideos"
 myVideo.muted = true;
@@ -27,7 +27,7 @@ peer.on('open',id=>{
   
 		peer.on('call',call=>{
 			call.answer(stream);
-			const video = document.createElement('video');
+			const video = document.createElement('audio');
 			call.on('stream',userVideo=>{
 				addVideoStream(video, userVideo);
 			})
@@ -49,7 +49,7 @@ peer.on('open',id=>{
   const connectToNewUser = (userId, stream) => {
 	  console.log(userId)
 	 const call = peer.call(userId, stream);
-	  const video = document.createElement('video');
+	  const video = document.createElement('audio');
 	  call.on('stream',userVideo=>{
 		  addVideoStream(video, userVideo);
 	  })
