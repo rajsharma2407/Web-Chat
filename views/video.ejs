@@ -61,14 +61,28 @@
     </style>
 </head>
 <body>
+	<button onclick="myfunction()" style="margin:10px;">
+		<i class="fas fa-paste"></i>
+		</button>
+	<input type="text" value="<%= id %>" id="input" style="border:none;color:white;pointer-events: none;opacity:0;">
 		<div class="main-video-grid">
 			</div>    
-			<button class="close"><i class="fas fa-phone-slash"></i></button>
+			<a href="/"><button class="close"><i class="fas fa-phone-slash"></i></button></a>
 		
 		<div class="user-video-grid">
 			
 		</div>
 	<script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+	<script>
+
+	function myfunction(){
+  var copyText = document.querySelector("#input");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
+
+		</script>
 	<script src="/video.js"></script>
 </body>
 </html>

@@ -73,18 +73,22 @@ const addMessage = (date, time, msg, userId)=>{
     mainDiv.appendChild(dateDiv);
     mainDiv.appendChild(msgDiv);
 
+    // classes
+    dateSpan.className="date";
+    timeSpan.className="time";
+    dateDiv.className="dateDiv";
+    dateDiv.className="dateDiv";
     //styles 
-    dateDiv.style.margin="10px 0"
-    mainDiv.style.display="flex";
-    mainDiv.style.flexDirection="column";
-    mainDiv.style.margin="10px"
-    mainDiv.style.padding="15px"
-    mainDiv.style.maxWidth="60%"
-    msgP.style.maxWidth="100%"
-    mainDiv.style.background="white";
-    mainDiv.style.borderRadius="18px";
-    dateDiv.style.display="flex";
-    dateDiv.style.justifyContent="space-between";
+    // dateDiv.style.margin="10px 0"
+    // mainDiv.style.display="flex";
+    // mainDiv.style.flexDirection="column";
+    // mainDiv.style.margin="10px"
+    // mainDiv.style.padding="15px"
+    // mainDiv.style.maxWidth="60%"
+    // mainDiv.style.background="white";
+    // mainDiv.style.borderRadius="18px";
+    // dateDiv.style.display="flex";
+    // dateDiv.style.justifyContent="space-between";
 
 
     msgBox.appendChild(mainDiv);
