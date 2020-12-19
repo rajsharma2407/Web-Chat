@@ -77,7 +77,7 @@ const addMessage = (date, time, msg, userId)=>{
     dateSpan.className="date";
     timeSpan.className="time";
     dateDiv.className="dateDiv";
-    dateDiv.className="dateDiv";
+    mainDiv.className="mainDiv";
     //styles 
     // dateDiv.style.margin="10px 0"
     // mainDiv.style.display="flex";
