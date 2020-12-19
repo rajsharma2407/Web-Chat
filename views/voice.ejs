@@ -3,32 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voice call</title>
-    <style>
-        *{
-            margin:0;
-            padding:0;
-        }
-        body{
-            height:100vh;
-            width:100%;
-            overflow:hidden;
-        }
-        .container{
-            width:100%;
-            height:100%;
-            display:flex;
-            justify-content: center;
-            align-items:center;
-        }
+	<title>Video Call</title>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://kit.fontawesome.com/745bd8c243.js" crossorigin="anonymous"></script>
+	<script>const myId="<%= id %>"</script>
+    <style type="text/css">
+    *{
+    	margin:0;
+		padding:0;
+		box-sizing:border-box
+    }
+    body{
+    	height: 100vh;
+		width: 100%;
+		position:relative;
+    	overflow:hidden;
+    }
+    	.main-video-grid{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+    		height: 100%;
+    		width:100%;
+		}
+		.main-video-grid video {
+			height: 100%;
+			width:100%;
+		}
+    	.user-video-grid{
+    		position: absolute;
+    		right:0;
+    		bottom:0;
+    		width: 300px;
+    	}	
+    	.user-video-grid video{
+			width: 100%;
+			position: absolute;
+			bottom:0;
+		}
+		.close{
+			padding:15px;
+			border-radius: 50%;
+			font-size: 25px;
+			border:1px solid white;
+			background:red;
+			color:white;
+			position:absolute;
+			left:50%;
+			transform: translate(-50%,-50%);
+			top:50%;
+		} 	
+		@media (max-width: 500px){
+			.user-video-grid{
+				width:100px;
+			}
+		}
     </style>
 </head>
 <body>
-            <div class="container">
-                    <form action="/video/<%= id %>">
-                        <input type="text" name="link" placeholder="Join a call"><input type="button" value="&#8594;">
-                    </form>
+	<button onclick="myfunction()" style="margin:10px;">
+		<i class="fas fa-paste"></i>
+		</button>
+	<input type="text" value="<%= id %>" id="input" style="border:none;color:white;pointer-events: none;opacity:0;">
+		<div class="main-video-grid">
+			</div>    
+			<a href="/"><button class="close"><i class="fas fa-phone-slash"></i></button></a>
+		
+		<div class="user-video-grid">
+			
+		</div>
+	<script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+	<script>
 
-            </div>
+	function myfunction(){
+  var copyText = document.querySelector("#input");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
+
+		</script>
+	<script src="/voice.js"></script>
 </body>
 </html>

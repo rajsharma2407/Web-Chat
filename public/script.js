@@ -59,7 +59,7 @@ const addMessage = (date, time, msg, userId)=>{
     var msgP = document.createElement('p');
     var mainDiv = document.createElement('div');
 
-    if(userId === myId || userId == 'newuser')
+    if(userId !== myId || userId == 'newuser')
     mainDiv.style.float = "left";
     else
     mainDiv.style.float = "right";

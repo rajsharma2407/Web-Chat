@@ -57,6 +57,18 @@ app.get('/voice',(req,res)=>{
 })
 
 
+app.post('/voice',(req,res)=>{
+    var link = req.body.link;
+    if(link.length >= 30){
+        res.redirect('/voice/'+link);
+    }else{
+        res.redirect('/voice')
+    }
+})
+app.get('/voice/:room',(req,res)=>{
+    res.render('voice',{id:req.params.room});
+})
+
 
 
 
