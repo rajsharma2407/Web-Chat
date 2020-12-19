@@ -15,17 +15,16 @@
         }
         body{
             background:#fff;
+            overflow:hidden;
         }
         .container{
-            margin:20px auto;
-            padding-top: 15px;
             width:60%;
             background:rgba(230,230,230,0.1);
             position: relative;
-            height:92vh;
+            margin:auto;
+            height:100vh;
             font-family: sans-serif;
             box-shadow: 0 0 10px gray;
-            border-radius: 20px 20px 0;
         }
         #text{
             width:95%;
@@ -33,14 +32,12 @@
             border:none;
             float:left;
             border:1px solid lightblue;
-            border-radius: 0 0 0 20px;
         }
         .box{
             width:100%;
             position: absolute;
-            bottom: -29px;
+            bottom: 5px;
             box-shadow: 0 5px 15px gray;
-            border-radius: 0 0 20px 20px;
         }
         .btn{
             width:5%;
@@ -49,17 +46,62 @@
             float:right;
             background:rgb(85, 66, 192);
             color:white;
-            border-radius: 0 0 20px 0;
         }
         .msg-box{
             width:100%;
-            height:100%;
+            height:calc(100% - 40px);
             overflow:hidden auto;
             position:relative;
         }
+        .dateDiv{
+            font-size: 12px;
+            color:gray;
+        }
+        .date{
+            margin-right:5px;
+        }
+        .mainDiv{
+            padding:5px;
+            margin:5px;
+        }
+        .menu-container {
+              display: none;
+              cursor: pointer;
+              float:right;
+              margin:0 10px;
+        }
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #5a2a99;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+  transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+  opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+  transform: rotate(45deg) translate(-8px, -8px) ;
+}
+        header{
+            height:0;
+        }
+        
         .nav{
             position:absolute;
-            left:25px;
+            right:25px;
             top:30px;
             display: flex;
             height:200px;
@@ -69,6 +111,9 @@
             justify-content: space-around;
             align-items: center;
             width:100px;
+            background:white;
+            transition: 0.4s cubic-bezier(0.2, 0.58, 0.135, 4.045) all;
+
         }
         .nav i{
             cursor:pointer;
@@ -88,13 +133,19 @@
             text-align: center;
             padding:0 7px;
             display: none;
+            border:none;
         }
 		@media (max-width: 800px){
             .container{
                 width:100%;
                 margin:0;
                 border-radius: 0;
-                height:calc(95vh - 40px);
+            }
+            .nav{
+                transform:translateX(100%)
+            }
+            .msg-box{
+                height:calc(100% - 80px)
             }
             .btn{
                 width:10%;
@@ -104,59 +155,48 @@
                 border-radius: 0;
                 width:90%;
             }
-            .nav{
-                display: none;
-                height:30px;
-                flex-direction: row;
-                width:50%;
-                transform:translateX(-100%);
-
+            header{
+                height:40px;
             }
-            .nav i{
-                background:white;
-                padding:5px;
-                border-radius: 30px;
-
-            }
-            .add{
+            .menu-container{
                 display: block;
             }
         }
-        .visible{
-            transition: 10s cubic-bezier(0.6, 0.04, 0.98, 1.335) all;
-            display: flex;  
-            transform:translateX(10%)
-        }
-        nav{
-            transition: 10s cubic-bezier(0.6, 0.04, 0.98, 1.335) all;
-        }
-        .dateDiv{
-            font-size: 12px;
-            color:gray;
-        }
-        .date{
-            margin-right:5px;
-        }
-        .mainDiv{
-            padding:5px;
-            margin:5px;
-        }
+       .nav.change{
+           transform: translateX(0%);
+       }
+       .nav a{
+        transition: 0.4s cubic-bezier(0.2, 0.58, 0.135, 4.045) all;
+       }
     </style>
 </head>
 <body>
+    
+    <nav class="nav">
+           <a href="/video/"><i class="fas fa-video"></i></a>
+           <a href="/voice/"><i class="fas fa-microphone"></i></a>
+           <a href="/chat/<%= id %>"><i class="far fa-envelope"></i></a>
+            </nav>
         <div class="container">
+            <header>
+                <div class="menu-container" onclick="myFunction(this)">
+                  <div class="bar1"></div>
+                  <div class="bar2"></div>
+                  <div class="bar3"></div>
+                </div>
+                </header>
             <div class="msg-box"></div>
             <div class="box">
                 <input name="text" id="text" autocomplete="off" autocapitalize="on">
                 <input type="button" value="Send" class="btn">  
             </div>
         </div>
-        <span class="add" id="add">+</span>
-         <nav class="nav">
-           <a href="/video/"><i class="fas fa-video"></i></a>
-           <a href="/voice/"><i class="fas fa-microphone"></i></a>
-           <a href="/chat/<%= id %>"><i class="far fa-envelope"></i></a>
-            </nav>
+        <button class="add" id="add">+</button>
+         
     <script src="/script.js"></script>
+        <script>function myFunction(x) {
+  x.classList.toggle("change");
+  document.querySelector('.nav').classList.toggle("change");
+}</script>
 </body>
 </html>

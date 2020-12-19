@@ -35,10 +35,23 @@
             background-color: white;
             border:0.1px solid gray;
         }
+        
+        .back{
+            position:absolute;
+            left:30px;
+            top:30px;
+            font-size: 20px;
+            font-weight: bold;
+            color:white;
+            background:#5a2a99;
+            padding:4px 8px;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
         <div class="container">
+            <a href="/" class="back">&#8592;</a>
             <form action="/video" method="post">
                 <input type="text" name="link" id="link" placeholder="Paste the link">
                 <input type="submit" id="sub" value="Submit">

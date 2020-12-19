@@ -77,3 +77,10 @@ const close = document.querySelector('.close');
 close.onclick = function(){
 	socket.emit('dis-connect');
 }
+const addNav = document.querySelector('.add');
+const Nav = document.querySelector('.nav');
+
+addNav.onclick = function(){    
+    Nav.classList.toggle('visible');
+
+}
