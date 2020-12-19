@@ -52,7 +52,9 @@ app.get('/video/:room',(req,res)=>{
     res.render('video',{id:req.params.room});
 })
 
-
+app.get('/voice',(req,res)=>{
+    res.render('voice-template',{id:uuidv4()});
+})
 
 
 
