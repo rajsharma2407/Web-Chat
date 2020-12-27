@@ -10,10 +10,13 @@ app.use(express.static('public'));
 app.use(express.urlencoded({extended:false}));
 
 io.on('connection',socket=>{
+    socket.on('newuser',name=>{
 
-    socket.broadcast.emit('user','new user connected');
-        socket.on('message',(date,time,msg,id)=>{
-            io.emit('newMessage',date,time,msg,id);
+        socket.broadcast.emit('user','new user connected',name);
+        socket.on('message',(time,msg,id,name)=>{
+            io.emit('newMessage',time,msg,id, name);
+        })
+
         })
         socket.on('join-room',(roomId,id)=>{
             socket.join(roomId);
