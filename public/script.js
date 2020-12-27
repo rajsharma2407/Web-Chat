@@ -91,7 +91,10 @@ const addMessage = (time, msg, userId,names)=>{
     dateDiv.className="dateDiv";
     mainDiv.className="mainDiv";
     //styles 
+    nameSpan.style.padding="0 5px 0 0 "
     msgP.style.wordBreak="break-all"
+    msgP.style.padding="3px"
+    msgP.style.fontSize="1rem"
     mainDiv.style.maxWidth="60%"
     mainDiv.style.minWidth="20%"
     dateDiv.display="flex";
