@@ -20,11 +20,12 @@
             width: 100%;
         }
         .container{
+            overflow:hidden;
             width:60%;
             background:rgba(230,230,230,0.1);
             position: relative;
             margin:auto;
-            height:calc(100vh);
+            height:100vh;
             font-family: sans-serif;
             box-shadow: 0 0 10px gray;
         }
@@ -51,8 +52,7 @@
         }
         .msg-box{
             width:100%;
-            height:calc(100% - 50px);
-            margin-top:10px;
+            height:calc(100% - 40px);
             overflow:hidden auto;
             position:relative;
         }
@@ -144,6 +144,7 @@
         }
 		@media (max-width: 800px){
             .container{
+                overflow: hidden;
                 width:100%;
                 height:calc(100vh - 50px);
                 margin:0;
@@ -155,6 +156,7 @@
                 height:100%;
                 width:100%;
                 background:#fdfdfd;
+                display: none;
                 z-index: 1;
                 margin:0;
                 transform:translateX(100%);
