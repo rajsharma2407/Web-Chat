@@ -2,7 +2,18 @@ const socket = io('/');
 const btn = document.querySelector('.btn');
 const text = document.querySelector('#text');
 const msgBox = document.querySelector('.msg-box');
-var names = prompt('Enter Your Name');
+const body = document.getElementById("body");
+var names;
+(function(){
+    var name = [];
+    const PREFIX = 'names';
+     names = localStorage.getItem(PREFIX);
+     console.log(names)
+    if(names === null ){
+         names = prompt('Enter Your Name');
+        localStorage.setItem('names',names);
+    }
+})();
 socket.emit('newuser',names);
 (function(){
     
@@ -71,11 +82,18 @@ const addMessage = (time, msg, userId,names)=>{
     var mainDiv = document.createElement('div');
     var nameSpan= document.createElement('span');
 
-    if(userId !== myId || userId == 'newuser')
-    mainDiv.style.float = "left";
-    else
-    mainDiv.style.float = "right";
+    if(userId !== myId || userId == 'newuser'){
+        mainDiv.style.float = "left";
+        mainDiv.style.background="royalblue"
+        mainDiv.style.color="white";
+    }
+    else{
+        mainDiv.style.float = "right";
+        mainDiv.style.border="1px solid lightgray"
+    }
     mainDiv.style.clear="both"
+    mainDiv.style.padding="0 5px";
+    mainDiv.style.borderRadius="5px";
 
     nameSpan.innerText = names;
     timeSpan.innerText = time;
@@ -88,35 +106,20 @@ const addMessage = (time, msg, userId,names)=>{
 
     // classes
     timeSpan.className="time";
-    dateDiv.className="dateDiv";
+    dateDiv.className="dateDiv small";
     mainDiv.className="mainDiv";
     //styles 
     nameSpan.style.padding="0 5px 0 0 "
     msgP.style.wordBreak="break-all"
     msgP.style.padding="3px"
     msgP.style.fontSize="1rem"
+    msgP.style.margin="0"
     mainDiv.style.maxWidth="60%"
     mainDiv.style.minWidth="20%"
-    dateDiv.display="flex";
-    dateDiv.justifyContent="space-between";
-    // dateDiv.style.margin="10px 0"
-    // mainDiv.style.display="flex";
-    // mainDiv.style.flexDirection="column";
-    // mainDiv.style.margin="10px"
-    // mainDiv.style.padding="15px"
-    // mainDiv.style.background="white";
-    // mainDiv.style.borderRadius="18px";
-    // dateDiv.style.display="flex";
-    // dateDiv.style.justifyContent="space-between";
-
-
+    mainDiv.style.margin="0.5rem 0"
+    dateDiv.style.display="flex";
+    dateDiv.style.justifyContent="space-between";
     msgBox.appendChild(mainDiv);
     msgBox.scrollTop = msgBox.scrollHeight;
-}
-const addNav = document.querySelector('.add');
-const Nav = document.querySelector('.nav');
-
-addNav.onclick = function(){    
-    Nav.classList.toggle('visible');
-
-}
+    }
+    
