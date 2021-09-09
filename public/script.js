@@ -4,6 +4,7 @@ const text = document.querySelector('#text');
 const msgBox = document.querySelector('.msg-box');
 const body = document.getElementById("body");
 var names;
+// window.open();
 (function(){
     var name = [];
     const PREFIX = 'names';
